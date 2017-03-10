@@ -6,7 +6,7 @@ Este programa consiste en realizar un quiz al usuario con preguntas relacionadas
 ~ ruby quiz_controller.rb
 ```
 
-Las preguntas se guardan en el archivo *flashcard_samples.txt*
+Las preguntas con su respectiva respuesta se guardan en el archivo *flashcard_samples.txt*
 
 Se debe tener instalado artii:
 ```bash
