@@ -45,6 +45,18 @@ class Quiz
     right_answer.downcase == user_answer.downcase    
   end
 
+  def attempts(attempts, position)
+    if attempts == 3
+      position += 1
+      attempts = 0
+    end
+    return position, attempts
+  end
+
+  def score(score, total_questions)
+    (((score*1.0)/(total_questions))*100).ceil
+  end
+
 end
 
-
+  

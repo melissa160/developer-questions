@@ -1,7 +1,15 @@
+require 'artii'
+
 class QuizView
-   def gets_name
-    p "NAME:" # Imprimimos name
-    @name = gets.chomp.capitalize #Solicitamos @name
+  
+  def initialize
+    @funny_font = Artii::Base.new :font => 'slant'
+  end
+
+  def gets_name
+    puts @funny_font.asciify('Bienvenid@ al quiz')
+    puts "Tu Nombre:"
+    @name = gets.chomp.capitalize
   end
 
   def receive_answer
@@ -13,12 +21,15 @@ class QuizView
   end
 
   def print_attempts(num)
-    puts "-------- #{@name} Te queda #{num} intentos!! --------"
+    puts "-------- #{@name} Tienes #{num} intentos!! --------"
   end
 
-  def cheer
-    a = Artii::Base.new :font => 'slant'
-    puts a.asciify('CASI QUE NO!!!!')
-    p "#{@name.upcase} HAZ FINALIZADO EL RETO DE RUBY CON #{(@acu_correct/((@size_file + 1)/3.0))*100}% ACIERTOS"
+  def good
+    puts "Bien #{@name}!! Respuesta correcta!"
+  end
+
+  def cheer(score)
+    puts @funny_font.asciify('CASI QUE NO!!!!')
+    puts "#{@name} HAZ FINALIZADO EL RETO DE RUBY CON #{score}% ACIERTOS"
   end
 end
